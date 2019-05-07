@@ -15,6 +15,7 @@ int Ts = 0;
 int Td = 0;
 int Tf = 0;
 int ToBuzz=0;
+int CompBuzz = 300;
 
 unsigned char digits[4];
 unsigned char segValue [16] = {0x40, 0x79, 0x24, 0x30, 0x19, 0x12, 0x02, 0x78, 0x00, 0x18, 0x08, 0x03, 0x46, 0x21, 0x06, 0x0E};
@@ -69,12 +70,14 @@ ISR(TIMER1_CAPT_vect) //interrupção do T1
 
 ISR(TIMER2_COMPA_vect) //interrupção do TC1
 {
-	ToBuzz++;
-	if (ToBuzz >= 60)
+	if (ToBuzz >= CompBuzz)
 	{
 		cpl_bit(PORTB, PB2);
+		ToBuzz = 0;
 	}
+	ToBuzz++;
 }
+
 
 
 
@@ -106,6 +109,24 @@ int main(void)
 	_delay_us(10);
 	clr_bit(PORTB, PB1);
 	_delay_ms(500);
+	
+	if (x>100)
+	{
+		CompBuzz = 300;
+	} 
+	if (x<=100 && x>=50)
+	{
+		CompBuzz = 150;
+	}
+	if (x<=50 && x>=10)
+	{
+		CompBuzz = 75;
+	}
+	if (x<=10 && x>=0)
+	{
+		CompBuzz = 40;
+	}
+	
 	Ts = 0;
 	Td = 0;
     }
