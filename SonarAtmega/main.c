@@ -78,6 +78,25 @@ ISR(TIMER2_COMPA_vect) //interrupção do TC1
 	ToBuzz++;
 }
 
+void CheckBuzz()
+{
+	if (x>100)
+	{
+		CompBuzz = 300;
+	}
+	if (x<=100 && x>=50)
+	{
+		CompBuzz = 150;
+	}
+	if (x<=50 && x>=10)
+	{
+		CompBuzz = 75;
+	}
+	if (x<=10 && x>=0)
+	{
+		CompBuzz = 40;
+	}
+};
 
 
 
@@ -109,24 +128,7 @@ int main(void)
 	_delay_us(10);
 	clr_bit(PORTB, PB1);
 	_delay_ms(500);
-	
-	if (x>100)
-	{
-		CompBuzz = 300;
-	} 
-	if (x<=100 && x>=50)
-	{
-		CompBuzz = 150;
-	}
-	if (x<=50 && x>=10)
-	{
-		CompBuzz = 75;
-	}
-	if (x<=10 && x>=0)
-	{
-		CompBuzz = 40;
-	}
-	
+	CheckBuzz();
 	Ts = 0;
 	Td = 0;
     }
