@@ -241,8 +241,8 @@ ISR(TIMER0_COMPA_vect) //interrupção do TC1
 		PORTC = 0b1111110;
  186:	8e e7       	ldi	r24, 0x7E	; 126
  188:	88 b9       	out	0x08, r24	; 8
-		PORTD = segValue[digits[0]- '0'];
- 18a:	e0 91 20 01 	lds	r30, 0x0120	; 0x800120 <digits>
+		PORTD = segValue[digits[3]- '0'];
+ 18a:	e0 91 23 01 	lds	r30, 0x0123	; 0x800123 <digits+0x3>
  18e:	f0 e0       	ldi	r31, 0x00	; 0
  190:	e0 53       	subi	r30, 0x30	; 48
  192:	ff 4f       	sbci	r31, 0xFF	; 255
@@ -255,8 +255,8 @@ ISR(TIMER0_COMPA_vect) //interrupção do TC1
 		PORTC = 0b1111101;
  19a:	8d e7       	ldi	r24, 0x7D	; 125
  19c:	88 b9       	out	0x08, r24	; 8
-		PORTD = segValue[digits[1]- '0'];
- 19e:	e0 91 21 01 	lds	r30, 0x0121	; 0x800121 <digits+0x1>
+		PORTD = segValue[digits[2]- '0'];
+ 19e:	e0 91 22 01 	lds	r30, 0x0122	; 0x800122 <digits+0x2>
  1a2:	f0 e0       	ldi	r31, 0x00	; 0
  1a4:	e0 53       	subi	r30, 0x30	; 48
  1a6:	ff 4f       	sbci	r31, 0xFF	; 255
@@ -269,8 +269,8 @@ ISR(TIMER0_COMPA_vect) //interrupção do TC1
 		PORTC = 0b1111011;
  1ae:	8b e7       	ldi	r24, 0x7B	; 123
  1b0:	88 b9       	out	0x08, r24	; 8
-		PORTD = segValue[digits[2]- '0'];
- 1b2:	e0 91 22 01 	lds	r30, 0x0122	; 0x800122 <digits+0x2>
+		PORTD = segValue[digits[1]- '0'];
+ 1b2:	e0 91 21 01 	lds	r30, 0x0121	; 0x800121 <digits+0x1>
  1b6:	f0 e0       	ldi	r31, 0x00	; 0
  1b8:	e0 53       	subi	r30, 0x30	; 48
  1ba:	ff 4f       	sbci	r31, 0xFF	; 255
@@ -283,8 +283,8 @@ ISR(TIMER0_COMPA_vect) //interrupção do TC1
 		PORTC = 0b1110111;
  1c2:	87 e7       	ldi	r24, 0x77	; 119
  1c4:	88 b9       	out	0x08, r24	; 8
-		PORTD = segValue[digits[3]- '0'];
- 1c6:	e0 91 23 01 	lds	r30, 0x0123	; 0x800123 <digits+0x3>
+		PORTD = segValue[digits[0]- '0'];
+ 1c6:	e0 91 20 01 	lds	r30, 0x0120	; 0x800120 <digits>
  1ca:	f0 e0       	ldi	r31, 0x00	; 0
  1cc:	e0 53       	subi	r30, 0x30	; 48
  1ce:	ff 4f       	sbci	r31, 0xFF	; 255

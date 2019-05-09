@@ -28,22 +28,22 @@ ISR(TIMER0_COMPA_vect) //interrupção do TC1
 	{
 		case 1:
 		PORTC = 0b1111110;
-		PORTD = segValue[digits[0]- '0'];
+		PORTD = segValue[digits[3]- '0'];
 		break;
 
 		case 2:
 		PORTC = 0b1111101;
-		PORTD = segValue[digits[1]- '0'];
+		PORTD = segValue[digits[2]- '0'];
 		break;
 		
 		case 3:
 		PORTC = 0b1111011;
-		PORTD = segValue[digits[2]- '0'];
+		PORTD = segValue[digits[1]- '0'];
 		break;
 		
 		case 4:
 		PORTC = 0b1110111;
-		PORTD = segValue[digits[3]- '0'];
+		PORTD = segValue[digits[0]- '0'];
 		y = 0;
 		break;	
 	}
